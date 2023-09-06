@@ -1,1 +1,2 @@
-export default Hello = () => console.log("Jelllo...");
+const Hello = () => console.log("Jelllo...");
+export { Hello } ; 
