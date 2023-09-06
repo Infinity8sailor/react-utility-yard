@@ -1,6 +1,6 @@
 {
-  "name": "@infinity8sailor/react-utility-yard",
-  "version": "1.0.2",
+  "name": "react-utility-yard",
+  "version": "1.0.3",
   "description": "A react utility Package",
   "main": "index.js",
   "type": "module",
@@ -17,9 +17,6 @@
   ],
   "author": "Vaibhav Dasharathe",
   "license": "MIT",
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
-  },
   "bugs": {
     "url": "https://github.com/Infinity8sailor/react-utility-yard/issues"
   },
