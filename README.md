@@ -13,3 +13,9 @@ const Hello = () => console.log("Jello....);
 
 # Run 
 `npm run storybook`
+
+# Publish
+update to git and change version
+
+
+`npm publish`
