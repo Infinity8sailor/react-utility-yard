@@ -1,2 +1,2 @@
-export * from './useBoolean.ts';
-export * from './useHover.ts';
+export * from './useBoolean';
+export * from './useHover';

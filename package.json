@@ -6,7 +6,7 @@
   "type": "module",
   "types": "/build/index.d.ts",
   "scripts": {
-    "build": "tsc && copyfiles -u 1 src/assets/* build",
+    "build": "rimraf ./build && tsc --build && copyfiles -u 1 src/assets/* build && npx tailwindcss -i ./src/tailwind.css -o ./build/tailwind.css",
     "test": "echo \"Error: no test specified\" && exit 0",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"

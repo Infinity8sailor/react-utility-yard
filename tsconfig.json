@@ -13,14 +13,9 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "noEmit": true,
-    "allowImportingTsExtensions": true
+    // "noEmit": false,
+    // "allowImportingTsExtensions": true
   },
-  "include": [
-    "./src/**/*",
-    "./types",
-    "stories/components/sidebar.stories.tsx",
-    "stories/components/index.stories.tsx"
-  ],
+  "include": ["./src/**/*", "./types"],
   "exclude": ["./stories"]
 }
