@@ -1,5 +1,5 @@
 import React from "react";
-import { SideBar } from "./sidebar";
+import { SideBar } from "../../src/components/wrappers/sidebar";
 
 export default {
   title: "Examples/SideBar",
@@ -18,7 +18,7 @@ export default {
 };
 
 const sideBar_list = (): JSX.Element => {
-  let array = [];
+  let array: number[] = [];
   for (let index = 0; index < 50; index++) {
     array.push(index);
   }
