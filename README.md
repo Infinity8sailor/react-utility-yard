@@ -1,5 +1,6 @@
-# react-utility-yard
-Npm package.
+# React-utility-yard
+⚠️ This project is in developement, still you can explore for setting up following features together.
+
 ## Features
 - [x] React
 - [x] Tailwind

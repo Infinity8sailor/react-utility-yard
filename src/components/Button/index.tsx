@@ -4,6 +4,9 @@ import "./button.css";
 // import { MaterialIcon } from "./material_icon";
 
 interface props {
+  /**
+   * Bias: bias_text[rating.bias[0]],
+   */
   text: string;
   focus: boolean;
   onclick: any;

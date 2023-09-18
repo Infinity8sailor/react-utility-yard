@@ -1,6 +1,6 @@
 {
   "name": "react-utility-yard",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A react utility Package",
   "main": "src/index.ts",
   "type": "module",
