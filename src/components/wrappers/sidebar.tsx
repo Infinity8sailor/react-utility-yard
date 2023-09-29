@@ -14,18 +14,29 @@ type Props = {
    * side bar on left side ?
    */
   leftside?: boolean;
+  /**
+   * side bar on width ?
+   */
+  width?: string;
+
   title?: string;
 };
 
-export const SideBar = ({ sideBar_list, children, leftside, title }: Props) => {
+export const SideBar = ({
+  sideBar_list,
+  children,
+  leftside,
+  title,
+  width,
+}: Props) => {
   const [state, setState] = useState(true);
   return (
     <section
       className={` flex ${
         !leftside && "flex-row-reverse"
-      } gap-1 min-h-[inherit] max-h-[inherit] `}
+      } gap-1 min-h-[inherit] max-h-[inherit] w-full`}
     >
-      <div className={` bg-slate-600 ${state ? "w-64" : "w-10"} `}>
+      <div className={` ${state ? width : "w-10"} `}>
         <div
           className={`m-1 ${!leftside ? "float-left" : "float-right"} w-8`}
           onClick={() => setState(!state)}
@@ -35,7 +46,6 @@ export const SideBar = ({ sideBar_list, children, leftside, title }: Props) => {
         {state && (
           <div
             className={`m-2 ${leftside ? "float-left" : "float-right"} w-32`}
-            // onClick={() => setState(!state)}
           >
             <div>{title}</div>
           </div>
@@ -44,7 +54,7 @@ export const SideBar = ({ sideBar_list, children, leftside, title }: Props) => {
           {state && sideBar_list}
         </div>
       </div>
-      <div className="p-1 flex-1 bg-slate-300">{children}</div>
+      <div className={`p-1 flex-1 `}>{children}</div>
     </section>
   );
 };
@@ -52,4 +62,5 @@ export const SideBar = ({ sideBar_list, children, leftside, title }: Props) => {
 SideBar.defaultProps = {
   leftside: true,
   title: "Annie Leonhart",
+  width: "w-72",
 };
