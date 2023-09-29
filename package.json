@@ -6,9 +6,9 @@
   "module": "./dist/esm/index.js",
   "types": "./dist/esm/index.d.ts",
   "scripts": {
-    "build": "npm run build:esm && npm run build:cjs",
-    "build:esm": "tsc",
-    "build:cjs": "tsc --module commonjs --outDir dist/cjs",
+    "build": "rimraf ./dist && npm run build:esm && npm run build:cjs ",
+    "build:esm": "tsc && copyfiles -u 1 src/assets/* dist/esm && npx tailwindcss -i ./src/tailwind.css -o ./dist/esm/tailwind.css",
+    "build:cjs": "tsc --module commonjs --outDir dist/cjs && copyfiles -u 1 src/assets/* dist/cjs && npx tailwindcss -i ./src/tailwind.css -o ./dist/cjs/tailwind.css",
     "build-tsx": "rimraf ./build && tsc --build && copyfiles -u 1 src/assets/* build && npx tailwindcss -i ./src/tailwind.css -o ./build/tailwind.css",
     "test": "echo \"Error: no test specified\" && exit 0",
     "storybook": "storybook dev -p 6006",
