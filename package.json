@@ -2,11 +2,14 @@
   "name": "react-utility-yard",
   "version": "1.0.8",
   "description": "A react utility Package",
-  "main": "/build/index.js",
-  "type": "module",
-  "types": "/build/index.d.ts",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/esm/index.d.ts",
   "scripts": {
-    "build": "rimraf ./build && tsc --build && copyfiles -u 1 src/assets/* build && npx tailwindcss -i ./src/tailwind.css -o ./build/tailwind.css",
+    "build": "npm run build:esm && npm run build:cjs",
+    "build:esm": "tsc",
+    "build:cjs": "tsc --module commonjs --outDir dist/cjs",
+    "build-tsx": "rimraf ./build && tsc --build && copyfiles -u 1 src/assets/* build && npx tailwindcss -i ./src/tailwind.css -o ./build/tailwind.css",
     "test": "echo \"Error: no test specified\" && exit 0",
     "storybook": "storybook dev -p 6006",
     "storybook-prod": "start-storybook -p 6006 -s public",
@@ -56,6 +59,8 @@
     "typescript": "^5.2.2"
   },
   "files": [
-    "/build/**/*"
+    "dist",
+    "LICENSE",
+    "README.md"
   ]
 }

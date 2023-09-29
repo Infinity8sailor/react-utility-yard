@@ -1,4 +1,4 @@
-import { useRef, useEffect } from "react";
+import React, { useRef, useEffect } from "react";
 // import "./button.css";
 // import { Loading } from "./loading";
 // import { MaterialIcon } from "./material_icon";
@@ -23,10 +23,10 @@ export function Button({
   onclick = null,
   onkeydown = null,
   z_id = 10,
-  size = "",
-  loading = false, // for loading image to be displayed
-  icon = null,
-}: props) {
+}: // size = "",
+// loading = false, // for loading image to be displayed
+// icon = null,
+props) {
   const button_ref = useRef<any>(null);
   // console.log(size);
   useEffect(() => {
