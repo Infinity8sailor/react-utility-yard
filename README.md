@@ -12,10 +12,18 @@
 Functions 
 const Hello = () => console.log("Jello....);
 
-# Run Storybook
+# Run & Publish Storybook
+This storybook is published [live](https://react-utility-yard.vercel.app/)
+
+### Run storybook locally
 `npm run storybook`
 
-# Publish
+### Publish Storybook Online [ Automated by vercel ]
+`npm run build-storybook-prod`
+
+
+
+# Publish NPM
 Push the changes to git and change package version otherwise npm don't accept.
 ### Build the package
 `npm run build`
@@ -31,4 +39,5 @@ Push the changes to git and change package version otherwise npm don't accept.
 # Source info
  - package.json
    - files : list of files to be published along with readme and package.json
-   - 
+ - tsconfig.json
+   - sourceMap : source map maps the transformed source to the original source for debbuging purpose by the browser.
