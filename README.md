@@ -34,6 +34,7 @@ Push the changes to git and change package version otherwise npm don't accept.
 # Issues and Fixes
 - Integrating Tailwind with ts. While building the module compiled tailwind must be sent along with build directory.
   - `npx tailwind -i src/tailwind.css -o ./build/tailwind.css`
+  - Currently, Not providing Css with the package.
 - Copy assets to the build [ might need to see better way]
 
 # Source info
