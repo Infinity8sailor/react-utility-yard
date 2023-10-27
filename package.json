@@ -7,7 +7,7 @@
   "types": "./dist/esm/index.d.ts",
   "scripts": {
     "prebuild": "",
-    "build": "rimraf ./dist && npm run build:esm && npm run build:cjs && build-storybook -s public ",
+    "build": "rimraf ./dist && npm run build:esm && npm run build:cjs && npm run build-storybook -s public ",
     "build:linux": "rm -rf ./dist && npm run build:esm && npm run build:cjs",
     "build:esm": "tsc && copyfiles -u 1 src/assets/* dist/esm",
     "build:cjs": "tsc --module commonjs --outDir dist/cjs && copyfiles -u 1 src/assets/* dist/cjs",
