@@ -20,6 +20,7 @@ type Props = {
   width?: string;
 
   title?: string;
+  titleBarColor?: string;
 };
 
 export const SideBar = ({
@@ -28,31 +29,31 @@ export const SideBar = ({
   leftside,
   title,
   width,
+  titleBarColor = "bg-slate-600"
 }: Props) => {
   const [state, setState] = useState(true);
   return (
     <section
-      className={` flex ${
+      className={`flex ${
         !leftside && "flex-row-reverse"
-      } gap-1 min-h-[inherit] max-h-[inherit] w-full`}
+      } gap-0 min-h-[inherit] max-h-[inherit] w-full`}
     >
-      <div className={` ${state ? width : "w-10"} `}>
+      <div className={` ${state ? width : "w-12"} `}>
         <div
-          className={`m-1 ${!leftside ? "float-left" : "float-right"} w-8`}
-          onClick={() => setState(!state)}
+          className={`max-h-[40px]  flex ${
+            leftside ? "flex-row" : "flex-row-reverse"
+          } w-full ${titleBarColor}`}
         >
-          <img height="40px" src={Hamberger} />
-        </div>
-        {state && (
-          <div
-            className={`m-2 ${leftside ? "float-left" : "float-right"} w-32`}
-          >
-            <div>{title}</div>
+          <div className="w-[40px] mx-1" onClick={() => setState(!state)}>
+            <img height="40px" src={Hamberger} />
           </div>
-        )}
-        <div className="pt-[40px] h-full max-h-full bg-slate-500">
-          {state && sideBar_list}
+          {state && (
+            <div className={`m-1 flex-1 flex justify-center items-center`}>
+              <div className="text-xl">{title}</div>
+            </div>
+          )}
         </div>
+        <div className="flex-1 max-h-full">{state && sideBar_list}</div>
       </div>
       <div className={`p-1 flex-1 `}>{children}</div>
     </section>

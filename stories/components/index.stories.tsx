@@ -2,7 +2,7 @@ import { Button } from "../../src/components/Button";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: "Examples/Button",
+  title: "Core/Button",
   component: Button,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/react/configure/story-layout
@@ -20,6 +20,19 @@ export default {
 export const Primary = {
   args: {
     text: "Duck",
+    focus: true,
+    onclick: () => console.log("Hello"),
+    onkeydown: null,
+    z_id: 1,
+    size: "40px",
+    loading: true, // for loading image to be displayed
+    icon: null,
+  },
+};
+export const Active = {
+  args: {
+    text: "Duck",
+    active: true,
     focus: true,
     onclick: () => console.log("Hello"),
     onkeydown: null,

@@ -2,7 +2,7 @@ import React from "react";
 import { SideBar } from "../../src/components/wrappers/sidebar";
 
 export default {
-  title: "Examples/SideBar",
+  title: "Components/SideBar",
   component: SideBar,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/react/configure/story-layout

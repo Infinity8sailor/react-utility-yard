@@ -1,4 +1,6 @@
 import "../src/tailwind.css";
+import 'material-icons/iconfont/material-icons.css';
+
 /** @type { import('@storybook/react').Preview } */
 const preview = {
   parameters: {

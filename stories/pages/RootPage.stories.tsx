@@ -5,7 +5,7 @@ import { RootPage } from "./rootPage";
 // import { SideBarX } from "../../components/wrappers/sidebar.stories";
 
 export default {
-  title: "Example/Pages/Root",
+  title: "components/Pages/Root",
   component: RootPage,
   tags: ["autodocs"],
 } as Meta;

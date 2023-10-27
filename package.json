@@ -1,6 +1,6 @@
 {
   "name": "react-utility-yard",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "A react utility Package",
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
@@ -33,7 +33,9 @@
   },
   "homepage": "https://github.com/Infinity8sailor/react-utility-yard#readme",
   "dependencies": {
+    "@tailwindcss/forms": "^0.5.6",
     "@testing-library/react": "^14.0.0",
+    "material-icons": "^1.13.12",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },

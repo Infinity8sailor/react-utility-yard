@@ -12,6 +12,13 @@
 Functions 
 const Hello = () => console.log("Jello....);
 
+# Additional Settings tobe used in your Project
+- Following libraries are must
+  - Tailwind
+  - material Icons ( google fonts )
+-  Tailwind Plugins
+   -  @tailwindcss/forms
+
 # Run & Publish Storybook
 This storybook is published [live](https://react-utility-yard.vercel.app/)
 
@@ -30,15 +37,23 @@ Push the changes to git and change package version otherwise npm don't accept.
 ### Publish the package
 `npm publish`
 
+## On-Going tasks
+- [ ] Remove the padding for sidebar content box
+- [ ] Remove the css file from build if not using it.
+
 
 # Issues and Fixes
 - Integrating Tailwind with ts. While building the module compiled tailwind must be sent along with build directory.
   - `npx tailwind -i src/tailwind.css -o ./build/tailwind.css`
   - Currently, Not providing Css with the package.
 - Copy assets to the build [ might need to see better way]
+- With Tailwind 3, Dynamic Classed dont work. Use this instead :  [link/Doc](https://tailwindcss.com/docs/content-configuration#dynamic-class-names).
 
 # Source info
  - package.json
    - files : list of files to be published along with readme and package.json
  - tsconfig.json
    - sourceMap : source map maps the transformed source to the original source for debbuging purpose by the browser.
+
+# References/Components/demos
+- [air-bnb](https://airbnb.io/lunar)
