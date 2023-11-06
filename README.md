@@ -1,4 +1,4 @@
-# React-utility-yard
+# React-utility-yard [ npm ](https://www.npmjs.com/package/react-utility-yard)
 ⚠️ This project is in developement, still you can explore for setting up following features together.
 
 ## Features
@@ -38,9 +38,10 @@ Push the changes to git and change package version otherwise npm don't accept.
 `npm publish`
 
 ## On-Going tasks
-- [ ] Remove the padding for sidebar content box
-- [ ] Remove the css file from build if not using it.
-
+- [x] Remove the padding for sidebar content box
+- [x] Remove the css file from build if not using it.
+- [ ] Side bar not scrolling
+- [ ] sidebar hamberger issue, its reversed.
 
 # Issues and Fixes
 - Integrating Tailwind with ts. While building the module compiled tailwind must be sent along with build directory.

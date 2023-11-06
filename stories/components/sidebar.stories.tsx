@@ -1,5 +1,5 @@
 import React from "react";
-import { SideBar } from "../../src/components/wrappers/sidebar";
+import { SideBar, sideBar_list } from "../../src/components/wrappers/sidebar";
 
 export default {
   title: "Components/SideBar",
@@ -15,20 +15,6 @@ export default {
     // side: "left",
     backgroundColor: { control: "color" },
   },
-};
-
-const sideBar_list = (): JSX.Element => {
-  let array: number[] = [];
-  for (let index = 0; index < 50; index++) {
-    array.push(index);
-  }
-  return (
-    <div className="h-full overflow-y-scroll">
-      {array.map((m) => (
-        <div> {`Item ${m}`}</div>
-      ))}
-    </div>
-  );
 };
 
 export const Default = {

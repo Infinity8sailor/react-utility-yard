@@ -1,8 +1,8 @@
 // Button.stories.tsx
 import * as React from "react";
 import { Meta, StoryFn } from "@storybook/react";
-import { RootPage } from "./rootPage";
-// import { SideBarX } from "../../components/wrappers/sidebar.stories";
+import { RootPage } from "../../src/components/wrappers/rootPage";
+import { SideBarX } from "../../stories/components/sidebar.stories";
 
 export default {
   title: "components/Pages/Root",
@@ -10,16 +10,20 @@ export default {
   tags: ["autodocs"],
 } as Meta;
 
-export const Primary: StoryFn = (args) => <RootPage {...args}>
+export const Primary: StoryFn = (args) => (
+  <RootPage {...args}>
     <>DOcs</>
-</RootPage>;
+  </RootPage>
+);
 Primary.args = {
   //   height: 720,
   //   width: 500,
   //   primary: true,
 };
-// export const Sidebar: StoryFn = (args) => (
-//   <RootPage {...args}>
-//     <SideBarX />
-//   </RootPage>
-// );
+export const Sidebar: StoryFn = (args) => (
+  <div>
+    <RootPage>
+      <SideBarX />
+    </RootPage>
+  </div>
+);
