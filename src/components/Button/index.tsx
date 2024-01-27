@@ -1,4 +1,6 @@
 import React, { useRef, useEffect } from "react";
+import { MaterialIcon } from "../Icons/icon";
+import { Loading } from "../Loading/loading";
 // import "./button.css";
 // import { Loading } from "./loading";
 // import { MaterialIcon } from "./material_icon";
@@ -12,9 +14,9 @@ interface props {
   onclick?: any;
   onkeydown?: any;
   z_id?: number;
-  size?: string;
+  size?: "sm" | "md" | "lg";
   loading?: boolean; // for loading image to be displayed
-  icon?: null | string;
+  icon?: string;
   color?: "cool" | "hot" | "warm";
 }
 
@@ -25,11 +27,17 @@ export function Button({
   onkeydown = null,
   z_id = 0,
   color = "cool",
-}: // size = "",
-// loading = false, // for loading image to be displayed
-// icon = null,
-props) {
+  icon = "",
+  loading = false,
+  size = "sm",
+}: props) {
   const button_ref = useRef<any>(null);
+
+  const sizeStyles = {
+    sm: "h-5",
+    md: "h-7",
+    lg: "h-10",
+  };
 
   const colors = {
     cool: " from-sky-300  to-green-500",
@@ -45,7 +53,7 @@ props) {
   return (
     <div
       style={{ zIndex: z_id, position: "relative" }}
-      className={`group inline-block rounded bg-gradient-to-r from-sk ${colors[color]} p-[2px] hover:text-white focus:outline-none focus:ring active:text-opacity-75`}
+      className={`group ${sizeStyles[size]} flex justify-center items-center rounded bg-gradient-to-r from-sk ${colors[color]} p-[2px] hover:text-white focus:outline-none focus:ring active:text-opacity-75 `}
     >
       <span
         ref={button_ref}
@@ -55,8 +63,8 @@ props) {
       >
         {text}
       </span>
-      {/* {icon ? <MaterialIcon icon={icon} /> : <></>}
-{loading ? <Loading size_num={34} /> : null} */}
+      {icon.length > 0 ? <MaterialIcon icon={icon} size="sm" /> : <></>}
+      {loading ? <Loading state={loading} size={"sm"} /> : null}
     </div>
   );
 }

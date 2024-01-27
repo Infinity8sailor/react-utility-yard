@@ -25,8 +25,7 @@ export const Primary = {
     onkeydown: null,
     z_id: 1,
     size: "40px",
-    loading: true, // for loading image to be displayed
-    icon: null,
+    // loading: true, // for loading image to be displayed
   },
 };
 export const Active = {
@@ -38,8 +37,7 @@ export const Active = {
     onkeydown: null,
     z_id: 1,
     size: "40px",
-    loading: true, // for loading image to be displayed
-    icon: null,
+    // loading: true, // for loading image to be displayed
   },
 };
 

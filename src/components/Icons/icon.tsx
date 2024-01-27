@@ -8,23 +8,20 @@ type Props = {
   //   color: "blue" | "green" | "red";
   onClick?: any;
   size?: "sm" | "md" | "lg";
-  cursor: "normal" | "pointer";
+  cursor?: "normal" | "pointer";
 };
 
 export const MaterialIcon = ({
   icon,
   onClick = null,
   size = "md",
-  cursor,
+  cursor = "normal",
 }: Props) => {
-  // const sizeStyles = [
-  //   { sm: "h-4 w-6", md: "h-6 w-10", lg: "h-8 w-14" },
-  //   {
-  //     sm: "m-0.5 h-3 w-3 peer-checked:start-2",
-  //     md: "m-1 h-4 w-4 peer-checked:start-4",
-  //     lg: "m-1 h-6 w-6 peer-checked:start-6",
-  //   },
-  // ];
+  const sizeStyles = {
+    sm: "h-4 w-6",
+    md: "h-6 w-10",
+    lg: "h-8 w-14",
+  };
   // const colors = {
   //   blue: `peer-checked:bg-blue-500`,
   //   green: `peer-checked:bg-green-500`,
@@ -47,7 +44,7 @@ export const MaterialIcon = ({
           fontVariationSettings: `'FILL' 1,
     'wght' 100,
     'GRAD' 0,
-    'opsz' ${size}`,
+    'opsz' ${sizeStyles[size]}`,
         }}
       >
         {icon}

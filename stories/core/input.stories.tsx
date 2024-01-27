@@ -1,9 +1,9 @@
-import { InputText } from "../../src/components/input/input_text";
+import { Input } from "../../src/components/input/input";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: "Core/Input/text",
-  component: InputText,
+  title: "Core/Input/Input",
+  component: Input,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/react/configure/story-layout
     layout: "centered",
@@ -19,12 +19,20 @@ export default {
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const Primary = {
   args: {
-    text: "Duck",
-    focus: true,
-    onclick: () => console.log("Hello"),
-    onkeydown: null,
-    z_id: 1,
-    size: "40px",
-    loading: true, // for loading image to be displayed
+    value: "Annie Leonhart",
+    size: "md",
+    type: "text",
+    editOn: true,
+    available: true,
+  },
+};
+export const Secondary = {
+  args: {
+    value: "Annie Leonhart",
+    size: "md",
+    type: "text",
+    editOn: true,
+    available: true,
+    className : "h-3 bg-red-400"
   },
 };
