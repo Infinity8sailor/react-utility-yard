@@ -1,4 +1,5 @@
 import { Button } from "../../src/components/Button";
+import React from "react";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -40,6 +41,12 @@ export const Active = {
     // loading: true, // for loading image to be displayed
   },
 };
+
+export const Width = () => (
+  <div className="w-96 bg-red-400 h-16 " style={{ width: "600px", background :"red" }}>
+    <Button text="Testing Width" />
+  </div>
+);
 
 // export const Secondary = {
 //   args: {
