@@ -52,8 +52,8 @@ export function Button({
   }, [focus]);
   return (
     <div
-      // style={{ zIndex: z_id, position: "relative" }}
-      className={`group ${sizeStyles[size]} relative flex justify-center items-center w-fit 
+      style={{ zIndex: z_id }}
+      className={`group ${sizeStyles[size]}  relative flex justify-center items-center w-fit 
       rounded bg-gradient-to-r from-sk ${colors[color]} p-[2px] hover:text-white
        focus:outline-none focus:ring active:text-opacity-75 `}
     >
