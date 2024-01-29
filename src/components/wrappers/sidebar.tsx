@@ -18,9 +18,9 @@ type Props = {
    * side bar on width ?
    */
   width?: string;
-
   title?: string;
   titleBarColor?: string;
+  titleTextColor?: string;
 };
 
 export const SideBar = ({
@@ -30,6 +30,7 @@ export const SideBar = ({
   title,
   width,
   titleBarColor = "bg-slate-600",
+  titleTextColor = "text-white",
 }: Props) => {
   const [state, setState] = useState(true);
   return (
@@ -42,7 +43,7 @@ export const SideBar = ({
         <div
           className={`max-h-[40px] float-right flex ${
             !leftside ? "flex-row" : "flex-row-reverse"
-          } w-full ${titleBarColor}`}
+          } w-full ${titleBarColor} ${titleTextColor}`}
         >
           <div className="w-[40px] mx-1" onClick={() => setState(!state)}>
             <img height="40px" src={Hamberger} />
@@ -53,7 +54,7 @@ export const SideBar = ({
             </div>
           )}
         </div>
-        <div className="pt-[40px] h-full max-h-full bg-slate-500">
+        <div className="pt-[40px] h-full max-h-full">
           {state && sideBar_list}
         </div>
       </div>

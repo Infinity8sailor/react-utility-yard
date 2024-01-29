@@ -34,8 +34,8 @@ export function Button({
   const button_ref = useRef<any>(null);
 
   const sizeStyles = {
-    sm: "h-5",
-    md: "h-7",
+    sm: "h-6",
+    md: "h-8",
     lg: "h-10",
   };
 
@@ -61,7 +61,7 @@ export function Button({
         ref={button_ref}
         onKeyDown={onkeydown}
         onClick={onclick}
-        className="block rounded-sm bg-white px-2 text-sm font-medium group-hover:bg-transparent"
+        className="block rounded-sm bg-green-50 px-2 text-sm font-medium group-hover:bg-transparent"
       >
         {text}
       </span>
