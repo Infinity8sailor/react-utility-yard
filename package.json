@@ -1,13 +1,12 @@
 {
   "name": "react-utility-yard",
-  "version": "1.0.18",
+  "version": "1.0.19",
   "description": "A react utility Package",
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
   "types": "./dist/esm/index.d.ts",
   "scripts": {
     "prebuild": "",
-    "start": "react-scripts start",
     "build": "rimraf ./dist && npm run build:esm && npm run build:cjs && npm run build-storybook -s public ",
     "build:linux": "rm -rf ./dist && npm run build:esm && npm run build:cjs",
     "build:esm": "tsc && copyfiles -u 1 src/assets/* dist/esm",
@@ -38,8 +37,7 @@
     "@testing-library/react": "^14.0.0",
     "material-icons": "^1.13.12",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-scripts": "^5.0.1"
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@storybook/addon-essentials": "^7.4.2",
