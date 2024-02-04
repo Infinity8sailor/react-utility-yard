@@ -1,9 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import { MaterialIcon } from "../Icons/icon";
 import { Loading } from "../Loading/loading";
-// import "./button.css";
-// import { Loading } from "./loading";
-// import { MaterialIcon } from "./material_icon";
 
 interface props {
   /**

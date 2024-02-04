@@ -9,6 +9,7 @@ type Props = {
   onChange: any;
   check?: boolean | undefined;
   size: "sm" | "md" | "lg";
+  text?: string;
 };
 
 export const ToggleSwitch = ({
@@ -16,6 +17,7 @@ export const ToggleSwitch = ({
   check = undefined,
   onChange = null,
   size = "md",
+  text,
 }: Props) => {
   const sizeStyles = [
     { sm: "h-4 w-6", md: "h-6 w-10", lg: "h-8 w-14" },
@@ -31,7 +33,7 @@ export const ToggleSwitch = ({
     red: `peer-checked:bg-red-500`,
   };
   return (
-    <div className={`flex`}>
+    <div className={`flex justify-center items-center gap-1`}>
       <label
         htmlFor="AcceptConditions1"
         className={`relative ${sizeStyles[0][size]} cursor-pointer [-webkit-tap-highlight-color:_transparent]`}
@@ -52,6 +54,7 @@ export const ToggleSwitch = ({
           className={`absolute inset-y-0 start-0 ${sizeStyles[1][size]} rounded-full bg-white transition-all `}
         ></span>
       </label>
+      <label className="pr-1">{text}</label>
     </div>
   );
 };

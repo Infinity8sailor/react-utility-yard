@@ -26,8 +26,8 @@ export const Input = ({
   type = "text",
   editOn = false,
   onDoubleClick = null,
-  // available = null,
-}: Props) => {
+}: // available = null,
+Props) => {
   const sizes = { sm: "h-6", md: "h-8", lg: "h-10" };
   return (
     <>
@@ -35,7 +35,7 @@ export const Input = ({
       <input
         type={type}
         readOnly={!editOn}
-        className={`${className} ${sizes[size]} rounded-[0.225rem] px-1  `}
+        className={`${className} ${sizes[size]} rounded-[0.225rem] px-2 py-0 `}
         value={value}
         onChange={(e) => onchange(e.target.value)}
         placeholder={placeholder}

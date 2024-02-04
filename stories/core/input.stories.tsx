@@ -1,4 +1,5 @@
 import { Input } from "../../src/components/input/input";
+import React from "react";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -33,6 +34,12 @@ export const Secondary = {
     type: "text",
     editOn: true,
     available: true,
-    className : "h-3 bg-red-400"
+    className: "h-3 bg-red-400",
   },
 };
+
+export const Extra = () => (
+  <div className="h-6">
+    <Input value={"Annie Leonhart"} editOn={true} placeholder="Kill me"/>{" "}
+  </div>
+);
