@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 
 type Props = {
   /**
@@ -13,6 +13,7 @@ type Props = {
   className?: string;
   editOn: boolean;
   onDoubleClick?: any;
+  focus?: boolean;
   // available: true | false | null;
 };
 
@@ -26,9 +27,17 @@ export const Input = ({
   type = "text",
   editOn = false,
   onDoubleClick = null,
+  focus,
 }: // available = null,
 Props) => {
   const sizes = { sm: "h-6", md: "h-8", lg: "h-10" };
+  const Text_ref: any = useRef(null);
+
+  useEffect(() => {
+    if (focus) {
+      Text_ref.current.focus();
+    }
+  }, [focus]);
   return (
     <>
       {/* <div className="relative"> */}
@@ -41,6 +50,7 @@ Props) => {
         placeholder={placeholder}
         onKeyDown={onkeyDown}
         onDoubleClick={onDoubleClick}
+        ref={Text_ref}
       />
       {/* {available !== null && (
           <span

@@ -8,12 +8,12 @@ type Props = {
   title?: string;
   default_value?: string;
 };
-export default function SelectOptions({
+export const SelectOptions = ({
   onClick,
   options,
   title,
   default_value,
-}: Props) {
+}: Props) => {
   const [age, setAge] = React.useState(default_value || "");
 
   const handleChange = (event: any) => {
@@ -43,4 +43,4 @@ export default function SelectOptions({
     </div>
     // </FormControl>
   );
-}
+};
