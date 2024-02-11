@@ -35,12 +35,12 @@ export const ToggleSwitch = ({
   return (
     <div className={`flex justify-center items-center gap-1`}>
       <label
-        htmlFor="AcceptConditions1"
+        // htmlFor="AcceptConditions1"
         className={`relative ${sizeStyles[0][size]} cursor-pointer [-webkit-tap-highlight-color:_transparent]`}
       >
         <input
           type="checkbox"
-          id="AcceptConditions1"
+          // id="AcceptConditions1"
           className="peer sr-only"
           checked={check}
           onChange={onChange}

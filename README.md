@@ -1,4 +1,5 @@
-# React-utility-yard [ npm ](https://www.npmjs.com/package/react-utility-yard)
+# React-utility-yard [ npm ](https://www.npmjs.com/package/react-utility-yard) [![npm version](https://badge.fury.io/js/react-utility-yard.svg)](https://badge.fury.io/js/react-utility-yard)
+
 ⚠️ This project is in developement, still you can explore for setting up following features together.
 
 ## Features
