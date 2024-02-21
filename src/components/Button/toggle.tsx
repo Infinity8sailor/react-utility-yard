@@ -15,7 +15,7 @@ type Props = {
 export const ToggleSwitch = ({
   color = "green",
   check = undefined,
-  onChange = null,
+  onChange = () => null,
   size = "md",
   text,
 }: Props) => {
@@ -54,7 +54,7 @@ export const ToggleSwitch = ({
           className={`absolute inset-y-0 start-0 ${sizeStyles[1][size]} rounded-full bg-white transition-all `}
         ></span>
       </label>
-      <label className="pr-1">{text}</label>
+      <label className="pr-1 text-black dark:text-white">{text}</label>
     </div>
   );
 };

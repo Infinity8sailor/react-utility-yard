@@ -40,6 +40,27 @@ export const Secondary = {
 
 export const Extra = () => (
   <div className="h-6">
-    <Input value={"Annie Leonhart"} editOn={true} placeholder="Kill me"/>{" "}
+    <Input value={"Annie Leonhart"} editOn={true} placeholder="Kill me" />{" "}
+  </div>
+);
+export const DarkExtra = () => (
+  <div className="h-6 text-black bg-black">
+    <Input
+      value={"Annie Leonhart"}
+      type="datetime-local"
+      editOn={true}
+      placeholder="Kill me"
+    />{" "}
+  </div>
+);
+export const DarkExtra2 = () => (
+  <div className=" bg-black">
+    <Input
+    className=""
+      value={"Annie Leonhart"}
+      type="datetime-local"
+      editOn={true}
+      placeholder="Kill me"
+    />{" "}
   </div>
 );

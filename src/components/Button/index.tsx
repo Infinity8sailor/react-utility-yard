@@ -50,7 +50,7 @@ export function Button({
   return (
     <div
       style={{ zIndex: z_id }}
-      className={`group ${sizeStyles[size]}  relative flex justify-center items-center w-fit 
+      className={`group ${sizeStyles[size]}  relative flex justify-center items-center w-fit  text-black
       rounded bg-gradient-to-r from-sk ${colors[color]} p-[2px] hover:text-white
        focus:outline-none focus:ring active:text-opacity-75 `}
     >

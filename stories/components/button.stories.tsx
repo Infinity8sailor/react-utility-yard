@@ -43,7 +43,15 @@ export const Active = {
 };
 
 export const Width = () => (
-  <div className="w-96 bg-red-400 h-16 " style={{ width: "600px", background :"red" }}>
+  <div
+    className="w-96 bg-red-400 h-16 "
+    style={{ width: "600px", background: "red" }}
+  >
+    <Button text="Testing Width" />
+  </div>
+);
+export const DarkMode = () => ( 
+  <div className=" w-full h-full rounded-md bg-black text-white flex justify-center items-center p-10">
     <Button text="Testing Width" />
   </div>
 );
