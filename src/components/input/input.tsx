@@ -9,7 +9,7 @@ type Props = {
   onkeyDown?: any;
   placeholder: string;
   size?: "sm" | "md" | "lg";
-  type?: "text" | "time" | "datetime-local";
+  type?: "text" | "time" | "datetime-local" | "date";
   className?: string;
   editOn: boolean;
   onDoubleClick?: any;
