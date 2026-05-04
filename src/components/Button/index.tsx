@@ -67,12 +67,14 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       }
     }, [focus]);
 
+    const resolvedColor = (color as string) === 'cool' ? 'accent' : color;
+
     const variantClass =
       variant === 'ghost'
         ? 'ruy-btn-ghost'
         : variant === 'glass'
           ? 'ruy-btn-glass'
-          : `ruy-btn-${variant}-${color}`;
+          : `ruy-btn-${variant}-${resolvedColor}`;
 
     const sizeClass = `ruy-btn-${size}`;
 

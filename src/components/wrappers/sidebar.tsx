@@ -37,38 +37,63 @@ export function SideBar({
   toggleIcon,
   className = '',
   leftside,
+  titleBarColor,
+  titleTextColor,
 }: SideBarProps) {
   const [collapsed, setCollapsed] = useState(defaultCollapsed);
 
   // Legacy compat: leftside prop
   const resolvedSide = side || (leftside === false ? 'right' : 'left');
 
+  // Handle width: check if it's a tailwind class or a CSS value
+  const isWidthClass = width.startsWith('w-');
+  const panelStyle = {
+    width: collapsed ? '3.5rem' : (isWidthClass ? undefined : width),
+    transition: 'width 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+  };
+
+  const panelClasses = [
+    'ruy-sidebar-panel',
+    !collapsed && isWidthClass ? width : '',
+  ].filter(Boolean).join(' ');
+
   return (
     <div className={`ruy-sidebar ruy-sidebar-${resolvedSide} ${className}`}>
       <div
-        className="ruy-sidebar-panel"
-        style={{ width: collapsed ? '3rem' : width }}
+        className={panelClasses}
+        style={panelStyle}
       >
-        <div className="ruy-sidebar-header">
+        <div 
+          className={`ruy-sidebar-header ${titleBarColor || ''}`}
+          style={{ backgroundColor: titleBarColor && !titleBarColor.startsWith('bg-') ? titleBarColor : undefined }}
+        >
           <button
             className="ruy-sidebar-toggle"
             onClick={() => setCollapsed((v) => !v)}
             aria-label={collapsed ? 'Expand sidebar' : 'Collapse sidebar'}
+            style={{ color: titleTextColor && !titleTextColor.startsWith('text-') ? titleTextColor : undefined }}
           >
             {toggleIcon ? (
               typeof toggleIcon === 'function' ? toggleIcon(collapsed) : toggleIcon
             ) : (
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                 strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 {collapsed ? (
-                  <><line x1="3" y1="12" x2="21" y2="12" /><line x1="3" y1="6" x2="21" y2="6" /><line x1="3" y1="18" x2="21" y2="18" /></>
+                  <path d="M3 12h18M3 6h18M3 18h18" />
                 ) : (
-                  <><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></>
+                  <path d="M18 6L6 18M6 6l12 12" />
                 )}
               </svg>
             )}
           </button>
-          {!collapsed && title && <span className="ruy-sidebar-title">{title}</span>}
+          {!collapsed && title && (
+            <span 
+              className={`ruy-sidebar-title ${titleTextColor || ''}`}
+              style={{ color: titleTextColor && !titleTextColor.startsWith('text-') ? titleTextColor : undefined }}
+            >
+              {title}
+            </span>
+          )}
         </div>
         {!collapsed && <div className="ruy-sidebar-content">{sideBar_list}</div>}
       </div>

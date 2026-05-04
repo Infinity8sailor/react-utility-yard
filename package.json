@@ -1,6 +1,6 @@
 {
   "name": "react-utility-yard",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "A modern React component library with glassmorphic design system and theme management",
   "type": "module",
   "main": "./dist/index.cjs",
