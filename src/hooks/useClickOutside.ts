@@ -3,7 +3,7 @@ import { useEffect, useRef, useCallback } from 'react';
 /** Fires callback when a click occurs outside the referenced element */
 export function useClickOutside<T extends HTMLElement>(
   callback: () => void,
-): React.RefObject<T | null> {
+): React.RefObject<T> {
   const ref = useRef<T>(null);
 
   const handleClick = useCallback(

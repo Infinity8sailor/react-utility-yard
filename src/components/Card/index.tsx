@@ -7,13 +7,17 @@ export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
   hoverable?: boolean;
 }
 
-export function Card({
-  children,
-  variant = 'glass',
-  hoverable = false,
-  className = '',
-  ...props
-}: CardProps) {
+export const Card = React.forwardRef<HTMLDivElement, CardProps>(
+  (
+    {
+      children,
+      variant = 'glass',
+      hoverable = false,
+      className = '',
+      ...props
+    },
+    ref,
+  ) => {
   const baseStyle: React.CSSProperties = {
     display: 'flex',
     flexDirection: 'column',
@@ -46,24 +50,28 @@ export function Card({
   const hoverClass = hoverable ? 'ruy-card-hoverable' : '';
 
   return (
-    <div
-      className={`ruy-card ${hoverClass} ${className}`}
-      style={baseStyle}
-      {...props}
-    >
-      {/* We inject some pure CSS for the hover effect so we don't need JS events */}
-      {hoverable && (
-        <style dangerouslySetInnerHTML={{__html: `
-          .ruy-card-hoverable:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--ruy-shadow-lg);
-          }
-        `}} />
-      )}
-      {children}
-    </div>
-  );
-}
+      <div
+        ref={ref}
+        className={`ruy-card ${hoverClass} ${className}`}
+        style={baseStyle}
+        {...props}
+      >
+        {/* We inject some pure CSS for the hover effect so we don't need JS events */}
+        {hoverable && (
+          <style dangerouslySetInnerHTML={{__html: `
+            .ruy-card-hoverable:hover {
+              transform: translateY(-2px);
+              box-shadow: var(--ruy-shadow-lg);
+            }
+          `}} />
+        )}
+        {children}
+      </div>
+    );
+  },
+);
+
+Card.displayName = 'Card';
 
 // --- Card Header ---
 export interface CardHeaderProps extends React.HTMLAttributes<HTMLDivElement> {

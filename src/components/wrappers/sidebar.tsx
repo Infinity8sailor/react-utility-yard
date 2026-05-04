@@ -13,8 +13,8 @@ export interface SideBarProps {
   width?: string;
   /** Initially collapsed */
   defaultCollapsed?: boolean;
-  /** Custom icon for the toggle button */
-  toggleIcon?: React.ReactNode;
+  /** Custom icon for the toggle button (ReactNode or function of collapsed state) */
+  toggleIcon?: React.ReactNode | ((collapsed: boolean) => React.ReactNode);
   /** Additional class */
   className?: string;
 

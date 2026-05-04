@@ -20,10 +20,8 @@ export function Dropdown({
   width = 220,
 }: DropdownProps) {
   const [isOpen, setIsOpen] = useState(false);
-  const containerRef = useRef<HTMLDivElement>(null);
+  const containerRef = useClickOutside<HTMLDivElement>(() => setIsOpen(false));
   const dropdownRef = useRef<HTMLDivElement>(null);
-
-  useClickOutside(containerRef, () => setIsOpen(false));
 
   const toggle = () => setIsOpen((prev) => !prev);
 
@@ -34,15 +32,15 @@ export function Dropdown({
     
     // Default to bottom-left relative to trigger
     let top = rect.bottom + 8;
-    let left = rect.left;
-    let right = 'auto';
+    let left: number | 'auto' = rect.left;
+    let right: number | 'auto' = 'auto';
 
     if (placement.includes('right')) {
       left = 'auto';
       right = window.innerWidth - rect.right;
     }
     if (placement.includes('top')) {
-      top = rect.top - 8; // we'd need to subtract dropdown height for true top, but this needs ResizeObserver in full impl
+      top = rect.top - 8;
     }
 
     return {
