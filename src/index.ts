@@ -50,6 +50,9 @@ export {
   BentoGrid,
   BentoGridItem,
   CompanionAnchor,
+  EmptyState,
+  SearchBar,
+  StatLabel,
 } from './components/index';
 
 export type {
@@ -94,6 +97,9 @@ export type {
   BentoGridProps,
   BentoGridItemProps,
   CompanionAnchorProps,
+  EmptyStateProps,
+  SearchBarProps,
+  StatLabelProps,
 } from './components/index';
 
 // ── Hooks ──

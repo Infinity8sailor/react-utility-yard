@@ -67,3 +67,13 @@ export type { BentoGridProps, BentoGridItemProps } from './wrappers/bento';
 
 export { CompanionAnchor } from './wrappers/companion';
 export type { CompanionAnchorProps } from './wrappers/companion';
+
+// New Components RUY 2.1
+export { EmptyState } from './EmptyState/index';
+export type { EmptyStateProps } from './EmptyState/index';
+
+export { SearchBar } from './SearchBar/index';
+export type { SearchBarProps } from './SearchBar/index';
+
+export { StatLabel } from './StatLabel/index';
+export type { StatLabelProps } from './StatLabel/index';

@@ -1,61 +1,120 @@
-# React-utility-yard [ npm ](https://www.npmjs.com/package/react-utility-yard) [![npm version](https://badge.fury.io/js/react-utility-yard.svg)](https://badge.fury.io/js/react-utility-yard)
+# React Utility Yard (RUY) v2 💎
 
-⚠️ This project is in developement, still you can explore for setting up following features together.
+[![npm version](https://badge.fury.io/js/react-utility-yard.svg)](https://badge.fury.io/js/react-utility-yard)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-## Features
-- [x] React
-- [x] Tailwind
-- [x] vite
-- [x] ts
-- [x] storybook
+**React Utility Yard** is a high-performance, premium React component library designed for building modern web applications with a focus on **Glassmorphism**, fluid animations, and developer productivity.
 
+Abstracted from real-world AI-powered ecosystems, RUY provides a curated set of components that are both visually stunning and highly functional.
 
-Functions 
-const Hello = () => console.log("Jello....);
+---
 
-# Additional Settings tobe used in your Project
-- Following libraries are must
-  - Tailwind
-  - material Icons ( google fonts )
--  Tailwind Plugins
-   -  @tailwindcss/forms
+## ✨ Features
 
-# Run & Publish Storybook
-This storybook is published [live](https://react-utility-yard.vercel.app/)
+- 🧊 **Glassmorphism Core**: Built-in support for ultra-modern glass aesthetics.
+- 🌓 **Dynamic Theming**: Seamless dark and light mode support with custom CSS tokens.
+- ⚡ **Type Safe**: First-class TypeScript support with full IntelliSense.
+- 🔄 **Backward Compatible**: v2.x architecture maintains support for legacy props (`onclick`, `editOn`, etc.).
+- 📦 **Zero Config Bundle**: Optimized for modern bundlers like Vite, Next.js, and Webpack.
 
-### Run storybook locally
-`npm run storybook`
+---
 
-### Publish Storybook Online [ Automated by vercel ]
-`npm run build-storybook-prod`
+## 🚀 Installation
 
+```bash
+npm install react-utility-yard
+```
 
+### 🛠 Configuration
 
-# Publish NPM
-Push the changes to git and change package version otherwise npm don't accept.
-### Build the package
-`npm run build`
-### Publish the package
-`npm publish`
+RUY leverages Tailwind CSS for its styling engine. Add the following to your `tailwind.config.js`:
 
-## On-Going tasks
-- [x] Remove the padding for sidebar content box
-- [x] Remove the css file from build if not using it.
-- [ ] Side bar not scrolling
-- [ ] sidebar hamberger issue, its reversed.
+```javascript
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    "./src/**/*.{js,ts,jsx,tsx}",
+    "./node_modules/react-utility-yard/dist/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {
+      // RUY design system tokens
+    },
+  },
+  plugins: [require("@tailwindcss/forms")],
+};
+```
 
-# Issues and Fixes
-- Integrating Tailwind with ts. While building the module compiled tailwind must be sent along with build directory.
-  - `npx tailwind -i src/tailwind.css -o ./build/tailwind.css`
-  - Currently, Not providing Css with the package.
-- Copy assets to the build [ might need to see better way]
-- With Tailwind 3, Dynamic Classed dont work. Use this instead :  [link/Doc](https://tailwindcss.com/docs/content-configuration#dynamic-class-names).
+Import the core styles in your main entry file (e.g., `main.tsx` or `_app.tsx`):
 
-# Source info
- - package.json
-   - files : list of files to be published along with readme and package.json
- - tsconfig.json
-   - sourceMap : source map maps the transformed source to the original source for debbuging purpose by the browser.
+```typescript
+import 'react-utility-yard/dist/index.css';
+```
 
-# References/Components/demos
-- [air-bnb](https://airbnb.io/lunar)
+---
+
+## 🧱 Key Components
+
+### 🧊 SideBar
+A sophisticated, collapsible navigation panel with support for custom layouts and glassmorphic headers.
+
+```tsx
+import { SideBar } from 'react-utility-yard';
+
+<SideBar 
+  title="Workspace" 
+  sideBar_list={<NavigationItems />}
+  width="18rem"
+>
+  <MainContent />
+</SideBar>
+```
+
+### 🔘 Button
+Modern buttons with glass, solid, and ghost variants. Fully compatible with legacy `onclick` and `text` props.
+
+```tsx
+import { Button } from 'react-utility-yard';
+
+<Button 
+  variant="glass" 
+  color="accent" 
+  onClick={() => console.log("Clicked!")}
+>
+  Ignite System
+</Button>
+```
+
+### ⌨️ Input
+Enhanced input fields with built-in "Read-only" toggle support via the `editOn` prop.
+
+---
+
+## 🛠 Development
+
+### Local Setup
+```bash
+# Clone the repository
+git clone https://github.com/Infinity8sailor/react-utility-yard.git
+
+# Install dependencies
+npm install
+
+# Run Storybook
+npm run storybook
+```
+
+### Build & Release
+The project uses `tsup` for extremely fast bundling.
+```bash
+# Build the library
+npm run build
+
+# Publish to NPM (Automated via GitHub Actions)
+# Bump version in package.json and push to main
+```
+
+---
+
+## 📜 License
+MIT © [Vaibhav Dasharathe](https://github.com/Infinity8sailor)
