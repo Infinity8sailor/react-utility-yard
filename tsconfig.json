@@ -1,23 +1,25 @@
 {
-  "include": ["src"],
-  "exclude": ["dist", "node_modules", "./stories"],
   "compilerOptions": {
-    "module": "esnext",
-    "lib": ["dom", "esnext"],
-    "importHelpers": true,
+    "target": "ES2020",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "lib": ["DOM", "DOM.Iterable", "ES2020"],
+    "jsx": "react-jsx",
     "declaration": true,
+    "declarationMap": true,
     "sourceMap": true,
+    "outDir": "./dist",
     "rootDir": "./src",
-    "outDir": "./dist/esm",
     "strict": true,
-    "noImplicitReturns": false,
-    "noFallthroughCasesInSwitch": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "moduleResolution": "node",
-    "jsx": "react",
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true
-  }
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "noFallthroughCasesInSwitch": true
+  },
+  "include": ["src"],
+  "exclude": ["dist", "node_modules", "stories", "**/*.stories.tsx", "**/*.test.tsx"]
 }

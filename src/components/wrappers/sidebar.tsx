@@ -1,84 +1,78 @@
-import React, { useState } from "react";
-import Hamberger from "./../../assets/hamburger.png";
+import { useState } from 'react';
 
-type Props = {
-  /**
-   * Side bar list,
-   */
-  sideBar_list?: JSX.Element | null;
-  /**
-   * Children Object Content
-   */
-  children: JSX.Element;
-  /**
-   * side bar on left side ?
-   */
-  leftside?: boolean;
-  /**
-   * side bar on width ?
-   */
-  width?: string;
+export interface SideBarProps {
+  /** Content for the sidebar panel */
+  sideBar_list?: React.ReactNode;
+  /** Main content area */
+  children: React.ReactNode;
+  /** Sidebar position */
+  side?: 'left' | 'right';
+  /** Sidebar title */
   title?: string;
-  titleBarColor?: string;
-  titleTextColor?: string;
-};
+  /** Sidebar width when expanded */
+  width?: string;
+  /** Initially collapsed */
+  defaultCollapsed?: boolean;
+  /** Custom icon for the toggle button */
+  toggleIcon?: React.ReactNode;
+  /** Additional class */
+  className?: string;
 
-export const SideBar = ({
+  // Legacy compat
+  /** @deprecated Use `side` with 'left' */
+  leftside?: boolean;
+  /** @deprecated Use CSS */
+  titleBarColor?: string;
+  /** @deprecated Use CSS */
+  titleTextColor?: string;
+}
+
+export function SideBar({
   sideBar_list,
   children,
+  side,
+  title = '',
+  width = '18rem',
+  defaultCollapsed = false,
+  toggleIcon,
+  className = '',
   leftside,
-  title,
-  width,
-  titleBarColor = "bg-slate-600",
-  titleTextColor = "text-white",
-}: Props) => {
-  const [state, setState] = useState(true);
+}: SideBarProps) {
+  const [collapsed, setCollapsed] = useState(defaultCollapsed);
+
+  // Legacy compat: leftside prop
+  const resolvedSide = side || (leftside === false ? 'right' : 'left');
+
   return (
-    <section
-      className={` flex ${
-        !leftside && "flex-row-reverse"
-      } gap-1 min-h-[inherit] max-h-[inherit] w-full`}
-    >
-      <div className={` ${state ? width : "w-12"} `}>
-        <div
-          className={`max-h-[40px] float-right flex ${
-            !leftside ? "flex-row" : "flex-row-reverse"
-          } w-full ${titleBarColor} ${titleTextColor}`}
-        >
-          <div className="w-[40px] mx-1" onClick={() => setState(!state)}>
-            <img height="40px" src={Hamberger} />
-          </div>
-          {state && (
-            <div className={`m-1 flex-1 flex justify-center items-center`}>
-              <div className="text-xl">{title}</div>
-            </div>
-          )}
+    <div className={`ruy-sidebar ruy-sidebar-${resolvedSide} ${className}`}>
+      <div
+        className="ruy-sidebar-panel"
+        style={{ width: collapsed ? '3rem' : width }}
+      >
+        <div className="ruy-sidebar-header">
+          <button
+            className="ruy-sidebar-toggle"
+            onClick={() => setCollapsed((v) => !v)}
+            aria-label={collapsed ? 'Expand sidebar' : 'Collapse sidebar'}
+          >
+            {toggleIcon ? (
+              typeof toggleIcon === 'function' ? toggleIcon(collapsed) : toggleIcon
+            ) : (
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                {collapsed ? (
+                  <><line x1="3" y1="12" x2="21" y2="12" /><line x1="3" y1="6" x2="21" y2="6" /><line x1="3" y1="18" x2="21" y2="18" /></>
+                ) : (
+                  <><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></>
+                )}
+              </svg>
+            )}
+          </button>
+          {!collapsed && title && <span className="ruy-sidebar-title">{title}</span>}
         </div>
-        <div className="pt-[40px] h-full max-h-full">
-          {state && sideBar_list}
-        </div>
+        {!collapsed && <div className="ruy-sidebar-content">{sideBar_list}</div>}
       </div>
-      <div className={`p-1 flex-1 `}>{children}</div>
-    </section>
-  );
-};
-
-SideBar.defaultProps = {
-  leftside: true,
-  title: "Annie Leonhart",
-  width: "w-72",
-};
-
-export const sideBar_list = (): JSX.Element => {
-  let array: number[] = [];
-  for (let index = 0; index < 50; index++) {
-    array.push(index);
-  }
-  return (
-    <div className="w-full overflow-y-auto bg-amber-200">
-      {array.map((m) => (
-        <div> {`Item ${m}`}</div>
-      ))}
+      <div className="ruy-sidebar-main">{children}</div>
     </div>
   );
-};
+}

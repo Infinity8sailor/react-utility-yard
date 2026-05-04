@@ -1,65 +1,96 @@
-import React, { useEffect, useRef } from "react";
+import { forwardRef } from 'react';
 
-type Props = {
-  /**
-   * props,
-   */
-  value: string | number | undefined;
-  onchange?: any;
-  onkeyDown?: any;
-  placeholder: string;
-  size?: "sm" | "md" | "lg";
-  type?: "text" | "time" | "datetime-local" | "date";
-  className?: string;
-  editOn: boolean;
-  onDoubleClick?: any;
+export interface InputProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size' | 'onChange'> {
+  /** Size preset */
+  size?: 'sm' | 'md' | 'lg';
+  /** Visual variant */
+  variant?: 'default' | 'glass';
+  /** Label text above the input */
+  label?: string;
+  /** Helper text below the input */
+  helperText?: string;
+  /** Error message (shows error state) */
+  error?: string;
+  /** Element to render on the left side */
+  leftAddon?: React.ReactNode;
+  /** Element to render on the right side */
+  rightAddon?: React.ReactNode;
+  /** Full container className */
+  containerClassName?: string;
+
+  // ── Legacy compat ──
+  /** @deprecated Use `onChange` with standard event signature */
+  onchange?: (value: string) => void;
+  /** @deprecated Use `onKeyDown` */
+  onkeyDown?: React.KeyboardEventHandler;
+  /** @deprecated Use `readOnly` */
+  editOn?: boolean;
+  /** @deprecated Use `autoFocus` */
   focus?: boolean;
-  // available: true | false | null;
-};
+  /** Standard onChange */
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+}
 
-export const Input = ({
-  value,
-  className,
-  onchange = () => null,
-  onkeyDown = () => null,
-  placeholder,
-  size = "sm",
-  type = "text",
-  editOn = false,
-  onDoubleClick = null,
-  focus,
-}: // available = null,
-Props) => {
-  const sizes = { sm: "h-6", md: "h-8", lg: "h-10" };
-  const Text_ref: any = useRef(null);
+export const Input = forwardRef<HTMLInputElement, InputProps>(
+  (
+    {
+      size = 'md',
+      variant = 'default',
+      label,
+      helperText,
+      error,
+      leftAddon,
+      rightAddon,
+      containerClassName = '',
+      className = '',
+      // Legacy
+      onchange,
+      onkeyDown,
+      editOn,
+      focus,
+      onChange,
+      onKeyDown,
+      readOnly,
+      autoFocus,
+      ...rest
+    },
+    ref,
+  ) => {
+    const isReadOnly = editOn !== undefined ? !editOn : readOnly;
 
-  useEffect(() => {
-    if (focus) {
-      Text_ref.current.focus();
-    }
-  }, [focus]);
-  return (
-    <>
-      {/* <div className="relative"> */}
-      <input
-        type={type}
-        readOnly={!editOn}
-        className={`${className} ${sizes[size]} rounded-[0.225rem] px-2 py-0 `}
-        value={value}
-        onChange={(e) => onchange(e.target.value)}
-        placeholder={placeholder}
-        onKeyDown={onkeyDown}
-        onDoubleClick={onDoubleClick}
-        ref={Text_ref}
-      />
-      {/* {available !== null && (
-          <span
-            className={`block h-4 w-4 ${
-              !available ? "bg-red-600" : "bg-green-600"
-            } rounded-[50%] absolute right-1 my-auto top-0 bottom-0`}
-          ></span>
-        )}
-      </div> */}
-    </>
-  );
-};
+    const wrapperClasses = [
+      'ruy-input',
+      `ruy-input-${size}`,
+      variant === 'glass' ? 'ruy-input-glass' : '',
+      error ? 'ruy-input-error' : '',
+    ].filter(Boolean).join(' ');
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+      if (onchange) onchange(e.target.value);
+      if (onChange) onChange(e);
+    };
+
+    return (
+      <div className={containerClassName}>
+        {label && <label className="ruy-input-label">{label}</label>}
+        <div className={wrapperClasses}>
+          {leftAddon && <span style={{ display: 'inline-flex', flexShrink: 0, marginRight: '0.25rem' }}>{leftAddon}</span>}
+          <input
+            ref={ref}
+            className={className}
+            onChange={handleChange}
+            onKeyDown={onkeyDown || onKeyDown}
+            readOnly={isReadOnly}
+            autoFocus={focus || autoFocus}
+            {...rest}
+          />
+          {rightAddon && <span style={{ display: 'inline-flex', flexShrink: 0, marginLeft: '0.25rem' }}>{rightAddon}</span>}
+        </div>
+        {error && <p className="ruy-input-error-text">{error}</p>}
+        {helperText && !error && <p className="ruy-input-helper">{helperText}</p>}
+      </div>
+    );
+  },
+);
+
+Input.displayName = 'Input';

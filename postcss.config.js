@@ -1,8 +1,5 @@
-// postcss.config.js
-module.exports = {
-  minify: true,
+export default {
   plugins: {
-    tailwindcss: {},
     autoprefixer: {},
   },
 };

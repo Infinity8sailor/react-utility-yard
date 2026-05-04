@@ -1,0 +1,249 @@
+/*
+ * React Utility Yard — Design Tokens
+ * 
+ * CSS custom properties that power the entire component library.
+ * Consumers override these to theme the library.
+ * 
+ * Usage:
+ *   import 'react-utility-yard/dist/tokens.css';
+ *   <ThemeProvider theme="dark"> ... </ThemeProvider>
+ */
+
+/* ─── Dark Theme (Default) ─── */
+:root,
+[data-theme="dark"] {
+  /* ── Surface & Background ── */
+  --ruy-bg-base: #050508;
+  --ruy-bg-surface: rgba(255, 255, 255, 0.05);
+  --ruy-bg-surface-hover: rgba(255, 255, 255, 0.08);
+  --ruy-bg-surface-active: rgba(255, 255, 255, 0.12);
+  --ruy-bg-elevated: rgba(0, 0, 0, 0.85); 
+  --ruy-bg-popover: rgba(0, 0, 0, 0.95);
+  --ruy-bg-skeleton: rgba(255, 255, 255, 0.08);
+
+  /* ── Glass ── */
+  --ruy-glass-blur: 24px;
+  --ruy-glass-saturation: 200%;
+  --ruy-glass-bg: rgba(0, 0, 0, 0.75);
+  --ruy-glass-border: rgba(255, 255, 255, 0.18);
+  --ruy-glass-shadow: 0 12px 48px rgba(0, 0, 0, 0.7);
+
+  /* ── Typography ── */
+  --ruy-font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --ruy-font-mono: 'JetBrains Mono', 'Fira Code', ui-monospace, monospace;
+  --ruy-text-primary: rgba(255, 255, 255, 0.95);
+  --ruy-text-secondary: rgba(255, 255, 255, 0.7);
+  --ruy-text-muted: rgba(255, 255, 255, 0.45);
+  --ruy-text-inverse: rgba(10, 10, 20, 0.95);
+  --ruy-text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8), 0 0 12px rgba(0, 0, 0, 0.3);
+
+  /* ── Accent (Indigo) ── */
+  --ruy-accent: #6366f1;
+  --ruy-accent-hover: #818cf8;
+  --ruy-accent-muted: rgba(99, 102, 241, 0.15);
+  --ruy-accent-glow: 0 4px 20px rgba(99, 102, 241, 0.35);
+
+  /* ── Semantic Colors ── */
+  --ruy-success: #22c55e;
+  --ruy-success-muted: rgba(34, 197, 94, 0.15);
+  --ruy-warning: #f59e0b;
+  --ruy-warning-muted: rgba(245, 158, 11, 0.15);
+  --ruy-danger: #ef4444;
+  --ruy-danger-muted: rgba(239, 68, 68, 0.15);
+  --ruy-info: #3b82f6;
+  --ruy-info-muted: rgba(59, 130, 246, 0.15);
+
+  /* ── Border ── */
+  --ruy-border-color: rgba(255, 255, 255, 0.1);
+  --ruy-border-color-hover: rgba(255, 255, 255, 0.2);
+  --ruy-border-color-focus: var(--ruy-accent);
+
+  /* ── Border Radius ── */
+  --ruy-radius-xs: 0.25rem;
+  --ruy-radius-sm: 0.5rem;
+  --ruy-radius-md: 0.75rem;
+  --ruy-radius-lg: 1rem;
+  --ruy-radius-xl: 1.5rem;
+  --ruy-radius-2xl: 2rem;
+  --ruy-radius-full: 9999px;
+
+  /* ── Spacing Scale ── */
+  --ruy-space-1: 0.25rem;
+  --ruy-space-2: 0.5rem;
+  --ruy-space-3: 0.75rem;
+  --ruy-space-4: 1rem;
+  --ruy-space-6: 1.5rem;
+  --ruy-space-8: 2rem;
+
+  /* ── Shadows ── */
+  --ruy-shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.2);
+  --ruy-shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.3);
+  --ruy-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --ruy-shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5);
+  --ruy-shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.6);
+
+  /* ── Transitions ── */
+  --ruy-transition-fast: 100ms ease;
+  --ruy-transition-normal: 200ms ease;
+  --ruy-transition-slow: 350ms ease;
+  --ruy-transition-spring: 400ms cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* ── Z-Index Scale ── */
+  --ruy-z-dropdown: 50;
+  --ruy-z-sticky: 100;
+  --ruy-z-overlay: 200;
+  --ruy-z-modal: 300;
+  --ruy-z-popover: 400;
+  --ruy-z-toast: 500;
+  --ruy-z-max: 9999;
+
+  /* ── Full Color Palette (Dark) ── */
+  --ruy-slate: #64748b;
+  --ruy-gray: #6b7280;
+  --ruy-zinc: #71717a;
+  --ruy-neutral: #737373;
+  --ruy-stone: #78716c;
+  --ruy-red: #ef4444;
+  --ruy-orange: #f97316;
+  --ruy-amber: #f59e0b;
+  --ruy-yellow: #eab308;
+  --ruy-lime: #84cc16;
+  --ruy-green: #22c55e;
+  --ruy-emerald: #10b981;
+  --ruy-teal: #14b8a6;
+  --ruy-cyan: #06b6d4;
+  --ruy-sky: #0ea5e9;
+  --ruy-blue: #3b82f6;
+  --ruy-indigo: #6366f1;
+  --ruy-violet: #8b5cf6;
+  --ruy-purple: #a855f7;
+  --ruy-fuchsia: #d946ef;
+  --ruy-pink: #ec4899;
+  --ruy-rose: #f43f5e;
+
+  /* ── Focus Ring ── */
+  --ruy-focus-ring: 0 0 0 2px var(--ruy-bg-base), 0 0 0 4px var(--ruy-accent);
+}
+
+/* ─── Light Theme ─── */
+[data-theme="light"] {
+  --ruy-bg-base: #f1f5f9;
+  --ruy-bg-surface: rgba(255, 255, 255, 0.1);
+  --ruy-bg-surface-hover: rgba(255, 255, 255, 0.2);
+  --ruy-bg-surface-active: rgba(255, 255, 255, 0.3);
+  --ruy-bg-elevated: rgba(255, 255, 255, 0.65);
+  --ruy-bg-popover: rgba(255, 255, 255, 0.95);
+  --ruy-bg-skeleton: rgba(0, 0, 0, 0.06);
+
+  --ruy-glass-bg: rgba(255, 255, 255, 0.4);
+  --ruy-glass-border: rgba(255, 255, 255, 0.8);
+  --ruy-glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  
+  --ruy-text-primary: #0f172a;
+  --ruy-text-secondary: #334155;
+  --ruy-text-muted: #64748b;
+  --ruy-text-inverse: #ffffff;
+  --ruy-text-shadow: none;
+
+  --ruy-accent: #4f46e5;
+  --ruy-accent-hover: #4338ca;
+  --ruy-accent-muted: rgba(79, 70, 229, 0.08);
+  --ruy-accent-glow: 0 4px 12px rgba(79, 70, 229, 0.15);
+
+  --ruy-border-color: rgba(0, 0, 0, 0.08);
+  --ruy-border-color-hover: rgba(0, 0, 0, 0.12);
+
+  --ruy-shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.03);
+  --ruy-shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+  --ruy-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --ruy-shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.1);
+  --ruy-shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.12);
+
+  /* ── Full Color Palette (Light - Curated) ── */
+  --ruy-slate: #64748b;
+  --ruy-gray: #6b7280;
+  --ruy-zinc: #71717a;
+  --ruy-neutral: #737373;
+  --ruy-stone: #78716c;
+  --ruy-red: #ef4444;
+  --ruy-orange: #f97316;
+  --ruy-amber: #f59e0b;
+  --ruy-yellow: #eab308;
+  --ruy-lime: #84cc16;
+  --ruy-green: #22c55e;
+  --ruy-emerald: #10b981;
+  --ruy-teal: #14b8a6;
+  --ruy-cyan: #06b6d4;
+  --ruy-sky: #0ea5e9;
+  --ruy-blue: #3b82f6;
+  --ruy-indigo: #6366f1;
+  --ruy-violet: #8b5cf6;
+  --ruy-purple: #a855f7;
+  --ruy-fuchsia: #d946ef;
+  --ruy-pink: #ec4899;
+  --ruy-rose: #f43f5e;
+
+  /* ── Premium Light Accents ── */
+  --ruy-light-glow: inset 0 1px 0 0 rgba(255, 255, 255, 0.4);
+  --ruy-light-border: rgba(0, 0, 0, 0.04);
+
+
+  --ruy-focus-ring: 0 0 0 2px var(--ruy-bg-base), 0 0 0 4px var(--ruy-accent);
+}
+
+/* ─── Utility Classes ─── */
+.ruy-glass {
+  background: var(--ruy-glass-bg);
+  backdrop-filter: blur(var(--ruy-glass-blur)) saturate(var(--ruy-glass-saturation));
+  -webkit-backdrop-filter: blur(var(--ruy-glass-blur)) saturate(var(--ruy-glass-saturation));
+  border: 1px solid var(--ruy-glass-border);
+  box-shadow: var(--ruy-glass-shadow);
+}
+
+.ruy-surface {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 100%);
+  backdrop-filter: blur(64px) saturate(180%);
+  -webkit-backdrop-filter: blur(64px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
+}
+
+[data-theme="light"] .ruy-surface {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.1) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.ruy-focus-ring:focus-visible {
+  outline: none;
+  box-shadow: var(--ruy-focus-ring);
+}
+
+/* ─── Animations ─── */
+@keyframes ruy-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes ruy-slide-up {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes ruy-slide-down {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes ruy-scale-in {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes ruy-spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes ruy-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}

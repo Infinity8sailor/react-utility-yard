@@ -3,11 +3,10 @@ export default {
   corePlugins: {
     preflight: false,
   },
-  content: ["./src/**/*.{js,jsx,ts,tsx}"],
-  darkMode: ['class', '[data-mode="dark"]'],
+  content: ['./src/**/*.{js,jsx,ts,tsx}'],
+  darkMode: ['class', '[data-theme="dark"]'],
   theme: {
     extend: {},
   },
-  plugins: [require("@tailwindcss/forms")],
-  // mode: "jit",
+  plugins: [],
 };
