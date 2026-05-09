@@ -184,3 +184,4 @@ export function CardFooter({ children, className = '', ...props }: CardFooterPro
 
 export * from './MediaCard';
 export * from './AsymmetricCard';
+export * from './TintedMetadataCard';

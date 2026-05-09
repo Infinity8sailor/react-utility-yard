@@ -56,8 +56,8 @@ export type { TooltipProps } from './Tooltip/index';
 export { Tabs, TabList, Tab, TabPanel } from './Tabs/index';
 export type { TabsProps, TabListProps, TabProps, TabPanelProps } from './Tabs/index';
 
-export { Card, CardHeader, CardTitle, CardDescription, CardBody, CardFooter, MediaCard, AsymmetricCard } from './Card/index';
-export type { CardProps, CardHeaderProps, CardTitleProps, CardDescriptionProps, CardBodyProps, CardFooterProps, MediaCardProps, AsymmetricCardProps } from './Card/index';
+export { Card, CardHeader, CardTitle, CardDescription, CardBody, CardFooter, MediaCard, AsymmetricCard, TintedMetadataCard } from './Card/index';
+export type { CardProps, CardHeaderProps, CardTitleProps, CardDescriptionProps, CardBodyProps, CardFooterProps, MediaCardProps, AsymmetricCardProps, TintedMetadataCardProps } from './Card/index';
 
 export { Timeline, TimelineNode } from './Timeline/index';
 export type { TimelineProps, TimelineNodeProps } from './Timeline/index';
