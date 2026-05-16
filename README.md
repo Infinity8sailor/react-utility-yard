@@ -85,6 +85,17 @@ import { Button } from 'react-utility-yard';
 </Button>
 ```
 
+### 🧊 GlassyText
+A universal frosted-glass wrapper that ensures content remains visible on any dynamic background. Automatically theme-aware.
+
+```tsx
+import { GlassyText } from 'react-utility-yard';
+
+<GlassyText variant="vibrant" depth="mid" padding="sm" radius="full">
+  <span style={{ fontWeight: 800 }}>Status: Active</span>
+</GlassyText>
+```
+
 ### ⌨️ Input
 Enhanced input fields with built-in "Read-only" toggle support via the `editOn` prop.
 

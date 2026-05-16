@@ -54,6 +54,7 @@ export {
   EmptyState,
   SearchBar,
   StatLabel,
+  GlassyText,
 } from './components/index';
 
 export type {
@@ -102,6 +103,7 @@ export type {
   EmptyStateProps,
   SearchBarProps,
   StatLabelProps,
+  GlassyTextProps,
 } from './components/index';
 
 // ── Hooks ──

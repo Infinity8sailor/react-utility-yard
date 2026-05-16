@@ -77,3 +77,6 @@ export type { SearchBarProps } from './SearchBar/index';
 
 export { StatLabel } from './StatLabel/index';
 export type { StatLabelProps } from './StatLabel/index';
+
+export { GlassyText } from './GlassyText/index';
+export type { GlassyTextProps } from './GlassyText/index';
