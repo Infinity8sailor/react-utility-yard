@@ -1,5 +1,7 @@
 # React Utility Yard (RUY) v2 💎
 
+> **Live on NPM:** [react-utility-yard](https://www.npmjs.com/package/react-utility-yard)
+
 [![npm version](https://badge.fury.io/js/react-utility-yard.svg)](https://badge.fury.io/js/react-utility-yard)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
