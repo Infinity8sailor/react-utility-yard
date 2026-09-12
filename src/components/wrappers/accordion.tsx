@@ -32,8 +32,9 @@ export function Accordion({
   // Clone children to pass expanded state
   const styledChildren = React.Children.map(children, (child) => {
     if (React.isValidElement(child)) {
-      const id = child.props.id || child.key;
-      return React.cloneElement(child as React.ReactElement<any>, {
+      const element = child as React.ReactElement<any>;
+      const id = element.props.id || child.key;
+      return React.cloneElement(element, {
         isExpanded: expanded.includes(id),
         onToggle: () => toggle(id),
       });

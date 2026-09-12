@@ -87,16 +87,18 @@ export function Modal({
 }
 
 // ── Confirm Modal preset ──
+import { AlertTriangle, Info, AlertCircle } from 'lucide-react';
 
 export interface ConfirmModalProps {
   isOpen: boolean;
   title: string;
-  message: string;
+  message: string | React.ReactNode;
   confirmLabel?: string;
   cancelLabel?: string;
   onConfirm: () => void;
   onCancel: () => void;
-  isDanger?: boolean;
+  variant?: 'danger' | 'warning' | 'info';
+  icon?: React.ReactNode;
 }
 
 export function ConfirmModal({
@@ -107,16 +109,40 @@ export function ConfirmModal({
   cancelLabel = 'Cancel',
   onConfirm,
   onCancel,
-  isDanger = false,
+  variant = 'info',
+  icon,
 }: ConfirmModalProps) {
+  const getVariantStyles = () => {
+    switch (variant) {
+      case 'danger': return { color: 'danger', iconColor: 'text-red-500', bg: 'bg-red-500/10', DefaultIcon: AlertTriangle };
+      case 'warning': return { color: 'warning', iconColor: 'text-amber-500', bg: 'bg-amber-500/10', DefaultIcon: AlertCircle };
+      case 'info':
+      default:
+        return { color: 'accent', iconColor: 'text-blue-500', bg: 'bg-blue-500/10', DefaultIcon: Info };
+    }
+  };
+
+  const styles = getVariantStyles();
+  const IconToUse = icon ? () => <>{icon}</> : styles.DefaultIcon;
+
   return (
-    <Modal isOpen={isOpen} onClose={onCancel} title={title}>
-      <p className="ruy-modal-message">{message}</p>
-      <div className="ruy-modal-actions">
+    <Modal isOpen={isOpen} onClose={onCancel} title="" showAccentBar={false} className="max-w-md">
+      <div className="flex items-start gap-4 mb-2 pt-2">
+        <div className={`w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 ${styles.bg}`}>
+          <IconToUse className={`w-6 h-6 ${styles.iconColor}`} />
+        </div>
+        <div className="flex-1 mt-1">
+          <h3 className="text-xl font-bold text-white mb-2">{title}</h3>
+          <div className="text-sm text-slate-400">
+            {message}
+          </div>
+        </div>
+      </div>
+      <div className="flex items-center justify-end gap-3 mt-8">
         <Button variant="ghost" onClick={onCancel}>{cancelLabel}</Button>
         <Button
           variant="solid"
-          color={isDanger ? 'danger' : 'accent'}
+          color={styles.color as any}
           onClick={() => { onConfirm(); onCancel(); }}
         >
           {confirmLabel}
@@ -125,3 +151,4 @@ export function ConfirmModal({
     </Modal>
   );
 }
+

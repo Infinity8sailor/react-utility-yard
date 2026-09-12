@@ -1,10 +1,11 @@
+import { SharinganSpinner } from 'react-sharingan-spinners';
 export interface SpinnerProps {
-  /** Visual variant */
-  variant?: 'circle' | 'dots' | 'orbit' | 'bars' | 'pulse-ring' | 'organic';
   /** Size preset */
   size?: 'xs' | 'sm' | 'md' | 'lg';
-  /** Additional class */
+  /** Custom class name for the wrapper */
   className?: string;
+  /** Variant of the spinner */
+  variant?: 'circle' | 'dots' | 'orbit' | 'bars' | 'pulse-ring' | 'organic' | 'sharingan-1' | 'sharingan-2' | 'sharingan' | 'mangekyou-itachi' | 'mangekyou-sasuke' | 'mangekyou-obito' | 'mangekyou-kakashi' | 'mangekyou-madara' | 'mangekyou-shisui' | 'mangekyou-izuna' | 'mangekyou-fugaku' | 'mangekyou-indra' | 'mangekyou-naori' | 'mangekyou-naka' | 'mangekyou-rai' | 'mangekyou-shin' | 'mangekyou-baru' | 'mangekyou-madara-eternal' | 'mangekyou-sasuke-eternal' | 'mangekyou-sarada' | 'mangekyou-hikari' | 'rinnegan' | 'sharingan-evolve-1-to-2' | 'sharingan-evolve-2-to-3' | 'sharingan-evolve-3-to-mangekyou' | 'sharingan-evolve-obito-2-to-mangekyou';
 
   // Legacy compat
   /** @deprecated Use `size` */
@@ -134,6 +135,13 @@ export function Spinner({
         `}} />
       </span>
     );
+  }
+
+  
+  if (variant.startsWith('sharingan') || variant.startsWith('mangekyou') || variant === 'rinnegan') {
+    // Dynamically delegate to the external package
+    
+    return <SharinganSpinner variant={variant as any} size={size} className={className} />;
   }
 
   if (variant === 'dots') {

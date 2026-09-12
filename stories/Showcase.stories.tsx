@@ -281,7 +281,7 @@ export const ComponentGallery: Story = {
               <Card>
                 <CardHeader><CardTitle>Spinner Variants & Sizes</CardTitle></CardHeader>
                 <CardBody style={{ display: 'flex', flexDirection: 'column', gap: '3rem', padding: '2.5rem' }}>
-                  {['circle', 'dots', 'orbit', 'bars', 'pulse-ring', 'organic'].map((v) => (
+                  {['circle', 'dots', 'orbit', 'bars', 'pulse-ring', 'organic', 'sharingan-1', 'sharingan-2', 'sharingan', 'mangekyou-itachi', 'mangekyou-sasuke', 'mangekyou-obito', 'mangekyou-kakashi', 'mangekyou-madara', 'mangekyou-shisui', 'mangekyou-izuna', 'mangekyou-fugaku', 'mangekyou-indra', 'mangekyou-naori', 'mangekyou-naka', 'mangekyou-rai', 'mangekyou-shin', 'mangekyou-baru', 'mangekyou-madara-eternal', 'mangekyou-sasuke-eternal', 'mangekyou-sarada', 'mangekyou-hikari', 'rinnegan', 'sharingan-evolve-1-to-2', 'sharingan-evolve-2-to-3', 'sharingan-evolve-3-to-mangekyou', 'sharingan-evolve-obito-2-to-mangekyou'].map((v) => (
                     <div key={v} style={{ display: 'flex', alignItems: 'center', gap: '3rem' }}>
                       <div style={{ width: '80px', fontSize: '0.75rem', fontWeight: 700, color: 'var(--ruy-text-muted)', textTransform: 'uppercase' }}>{v}</div>
                       <div style={{ display: 'flex', alignItems: 'center', gap: '2.5rem' }}>
