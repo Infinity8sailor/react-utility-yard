@@ -17,7 +17,28 @@
         "default": "./dist/index.cjs"
       }
     },
+    "./hooks": {
+      "import": {
+        "types": "./dist/hooks/index.d.ts",
+        "default": "./dist/hooks/index.js"
+      },
+      "require": {
+        "types": "./dist/hooks/index.d.cts",
+        "default": "./dist/hooks/index.cjs"
+      }
+    },
+    "./utils": {
+      "import": {
+        "types": "./dist/utils/index.d.ts",
+        "default": "./dist/utils/index.js"
+      },
+      "require": {
+        "types": "./dist/utils/index.d.cts",
+        "default": "./dist/utils/index.cjs"
+      }
+    },
     "./tokens.css": "./src/theme/tokens.css",
+    "./tokens.json": "./src/theme/tokens.json",
     "./styles.css": "./src/styles/components.css"
   },
   "sideEffects": [
@@ -26,6 +47,7 @@
   "files": [
     "dist",
     "src/theme/tokens.css",
+    "src/theme/tokens.json",
     "src/styles/components.css",
     "LICENSE",
     "README.md"
@@ -43,7 +65,8 @@
     "framer-motion": ">=10.0.0",
     "lucide-react": ">=0.300.0",
     "react": "^18.0.0 || ^19.0.0",
-    "react-dom": "^18.0.0 || ^19.0.0"
+    "react-dom": "^18.0.0 || ^19.0.0",
+    "sharingan-spinners": ">=1.0.0"
   },
   "peerDependenciesMeta": {
     "lucide-react": {
@@ -51,9 +74,13 @@
     },
     "framer-motion": {
       "optional": true
+    },
+    "sharingan-spinners": {
+      "optional": true
     }
   },
   "devDependencies": {
+    "sharingan-spinners": "file:../xApps/sharingan-spinners",
     "@storybook/addon-essentials": "^8.6.14",
     "@storybook/addon-interactions": "^8.6.0",
     "@storybook/addon-links": "^8.6.0",

@@ -114,3 +114,16 @@ export {
   useKeyPress,
   useMediaQuery,
 } from './hooks/index';
+
+// ── Pure Utilities ──
+export {
+  cn,
+  roundCurrency,
+  convertCurrency,
+  formatCurrency,
+  toIsoDate,
+  isSameLocalDay,
+  formatRelativeDay,
+  daysBetween,
+  safeStorage,
+} from './utils/index';

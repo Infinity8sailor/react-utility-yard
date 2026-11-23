@@ -1,4 +1,4 @@
-import { SharinganSpinner } from 'react-sharingan-spinners';
+import { SharinganSpinner } from 'sharingan-spinners';
 export interface SpinnerProps {
   /** Size preset */
   size?: 'xs' | 'sm' | 'md' | 'lg';
@@ -163,3 +163,4 @@ export function Spinner({
 
 /** @deprecated Use `Spinner` instead */
 export const Loading = Spinner;
+
